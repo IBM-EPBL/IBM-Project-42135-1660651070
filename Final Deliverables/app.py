@@ -1,12 +1,12 @@
+#!./env/bin/python3
 from flask import Flask, redirect, url_for, request, render_template, session, flash
 import sqlite3 as sql
 import re
 import ibm_db
-from sendgrid import *
-conn =ibm_db.connect("DATABASE=bludb;HOSTNAME=ba99a9e6-d59e-4883-8fc0-d6a8c9f7a08f.c1ogj3sd0tgtu0lqde00.databases.appdomain.cloud;PORT=31321;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;UID=xwz94276;PWD=0HI7kIeAaMGSpL03",'','')
+conn =ibm_db.connect("DATABASE=bludb;HOSTNAME=b1bc1829-6f45-4cd4-bef4-10cf081900bf.c1ogj3sd0tgtu0lqde00.databases.appdomain.cloud;PORT=32304;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;UID=bwz41477;PWD=l2tzoHcwf8BUKrbr",'','')
 
 app = Flask(__name__)
-app.secret_key="dhana"
+app.secret_key="sharn"
 
 @app.route('/')
 def hello():
@@ -155,7 +155,7 @@ def update_stock():
             limit=5
             print(type(limit))
             if(quantity<=limit):
-                  alert("Please update the quantity of the product {}, Atleast {} number of pieces must be added!".format(prodname,10))
+                  print("Please update the quantity of the product {}, Atleast {} number of pieces must be added!".format(prodname,10))
             return render_template("dashboard.html",meg=mg)   
             
         else:
@@ -202,4 +202,4 @@ def update():
     
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0')
